@@ -1,0 +1,28 @@
+body{
+    background-color: rgba(25, 158, 166, 0.38);
+    padding: 0;
+
+}
+
+main{
+    border: 1px solid black;
+    width: 70%;
+    background-color: white;
+    margin: 2% 15%;
+    padding: 5%;
+    /*min-height: 81vh;*/
+}
+
+ a.nav-link {
+    padding: 0%;
+}
+
+ footer{
+     position: absolute;
+     width: 100%;
+     bottom: 0;
+
+     min-height: 5%;
+     text-align: center;
+     /*vert-align: middle;*/
+ }
