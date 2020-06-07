@@ -3,7 +3,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from .config import default_avatar
+from .config import default_avatar, default_description
 
 
 # Create your models here.
@@ -11,7 +11,7 @@ from .config import default_avatar
 
 class ViralUser(models.Model):
     invite_link = models.TextField(max_length=30)
-    description = models.TextField(max_length=30, default="")
+    description = models.TextField(max_length=30, default=default_description)
 
     invited_users_amount = models.PositiveIntegerField(default=0)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")

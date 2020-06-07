@@ -29,32 +29,34 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
 
-    {% if user.is_authenticated %}
+        {% if user.is_authenticated %}
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url  "usersList" %}">Users</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url "userPage" user.id %}">My page</a>
-            </li>
-        </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url  "usersList" %}">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "userPage" user.id %}">My page</a>
+                </li>
+            </ul>
 
-        <span class="navbar-text ">
+            <span class="navbar-text align-right">
+                <a class="nav-link" href="{% url "logout" %}">Welcome, {{ user.get_username }}.</a>
+            </span>
+        {% else %}
+            <span class="navbar-text nav-right">
+                <a class="nav-link" href="{% url "login" %}">Welcome, new user. Please log in.</a>
+            </span>
+        {% endif %}
 
-        <a class="nav-link disabled" href="{% url "logout" %}">Welcome, {{ user.get_username }}.</a>
-
-    {% else %}
-        <a class="nav-link" href="{% url "login" %}">Welcome, new user. Please log in.</a>
-    {% endif %}
-    </span>
     </div>
 </nav>
+
 <main>
 
     {% block main %}BLOCK MAIN{% endblock %}

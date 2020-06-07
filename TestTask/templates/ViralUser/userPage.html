@@ -2,16 +2,16 @@
 {% load static %}
 
 {% block static-load %}
-    <link rel="stylesheet" href="{% static "index.css" %}">
+    <link rel="stylesheet" href="{% static "userPage.css" %}">
 {% endblock %}
 
-{% block title %}Users{% endblock %}
+{% block title %}User page{% endblock %}
 
 {% block main %}
     {% if error404 %}
         <p class="not-found-err">Sorry, but this user couldn't be found</p>
     {% else %}
-        <h1>{{ user.username }}</h1>
+        <h1 class="text-centre"> {{ user.username }}</h1>
         <div class="user-page-description-wrapper">
 
             <div class="user-page-description-info">

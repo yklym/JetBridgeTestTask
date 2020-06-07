@@ -1,20 +1,22 @@
 .user-page-description-wrapper{
     display: flex;
     justify-content: space-around;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .user-page-description-info{
-    max-width: 60%;
+    max-width: 50%;
 }
 
-.user-page-description-info{
+.user-page-description-image{
+    max-width: 30%;
+    overflow: hidden;
+}
+
+.user-page-description-image img {
+    object-fit: contain;
     width: 200px;
     height: 300px;
-}
-
-.user-page-description-info img {
-    object-fit: contain;
 }
 
 
