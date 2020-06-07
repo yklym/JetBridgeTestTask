@@ -1,0 +1,24 @@
+.user-page-description-wrapper{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.user-page-description-info{
+    max-width: 60%;
+}
+
+.user-page-description-info{
+    width: 200px;
+    height: 300px;
+}
+
+.user-page-description-info img {
+    object-fit: contain;
+}
+
+
+p.not-found-err{
+    font-weight: bolder;
+    font-size: 60px;
+}

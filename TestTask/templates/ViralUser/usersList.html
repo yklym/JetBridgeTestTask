@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+
+{% block title %}Users{% endblock %}
+
+{% block main %}
+    <h1>Users here</h1>
+    <div class="card-deck">
+        {% for profile in profiles %}
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ profile.images.first.url }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ profile.user.username }}</h5>
+                    <p class="card-text">{{ profile.description }}</p>
+                    <a href="{% url "userPage" profile.id %}" class="btn btn-primary">Go to profile</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

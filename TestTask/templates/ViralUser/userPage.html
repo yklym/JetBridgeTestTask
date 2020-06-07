@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block static-load %}
+    <link rel="stylesheet" href="{% static "index.css" %}">
+{% endblock %}
+
+{% block title %}Users{% endblock %}
+
+{% block main %}
+    {% if error404 %}
+        <p class="not-found-err">Sorry, but this user couldn't be found</p>
+    {% else %}
+        <h1>{{ user.username }}</h1>
+        <div class="user-page-description-wrapper">
+
+            <div class="user-page-description-info">
+                <h3>Description</h3>
+                <p>
+                    {{ profile.description }}
+                </p>
+            </div>
+
+            <div class="user-page-description-image">
+                <img src="{{ profile.images.first.url }}" alt="avatar">
+            </div>
+
+        </div>
+    {% endif %}
+
+{% endblock %}
