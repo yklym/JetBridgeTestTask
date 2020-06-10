@@ -1,0 +1,15 @@
+main .users-cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+main .users-cards-wrapper .card{
+    max-width: 28%;
+    margin: 1% 2%;
+}
+
+main p.user-list-description {
+    height: 20px;
+    overflow: hidden;
+}

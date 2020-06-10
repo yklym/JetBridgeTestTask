@@ -17,26 +17,20 @@ a.nav-link {
 }
 
 footer {
-    /*position: fixed;*/
     width: 100%;
-    /*bottom: 0;*/
-
     min-height: 5%;
     text-align: center;
-    /*vert-align: middle;*/
 }
 
 form ul {
     list-style-type: none;
 }
 
-main .users-cards-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+h1.text-centre {
+    text-align: center;
 }
 
-h1.text-centre {
+h4.text-centre {
     text-align: center;
 }
 

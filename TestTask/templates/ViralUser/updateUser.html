@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+
+{% block title %}Update profile{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+    {% if error404 %}
+        <p class="not-found-err">Sorry, but this user couldn't be found</p>
+    {% elif error403 %}
+        <p class="not-found-err">Sorry, but you have no permission to access this page</p>
+    {% else %}
+        <form method="POST" class="form-group">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-success">Update</button>
+            <a href="" class="btn btn-danger">Cancel</a>
+        </form>
+    {% endif %}
+{% endblock %}

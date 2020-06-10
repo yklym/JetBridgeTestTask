@@ -41,7 +41,7 @@
                     <a class="nav-link" href="{% url  "usersList" %}">Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url "userPage" user.id %}">My page</a>
+                    <a class="nav-link" href="{% url "userPage" user.profile.id %}">My page</a>
                 </li>
             </ul>
 
@@ -59,7 +59,73 @@
 
 <main>
 
-    {% block main %}BLOCK MAIN{% endblock %}
+    {% block main %}
+        <h2>Hello, this is my test task for JetBridge. Here is a litle info:</h2>
+        <h4 class="text-centre">Technical details</h4>
+        <ul>
+            <li>
+                This is a multipage server-side Django app.
+            </li>
+            <li>
+                Some standard features of Django such as auth, sessions and form handling where used.
+            </li>
+            <li>
+                GUI was made using Bootstrap and a third-party Django lib "crispy forms" which also uses Bootstrap as a
+                dependency.
+            </li>
+            <li>
+                App uses SQLite on deployment with Django ORM
+            </li>
+        </ul>
+        <h4 class="text-centre">User stories</h4>
+        <p>
+            User must sign up or sign in to use page. Unauthorized users can visit only this page and
+            sign-up/sign-in pages.
+            Site navigation is also unavailable for unauthorized users.
+            <strong>To sign in, you should click on invitation top right corner</strong>
+        </p>
+        <p>
+            On authorization stage, user can choose to register or log in. Form fields are validated and have hints.
+            Also,
+            user can use referral code while registration or skip it and leave the field empty. User can't use invalid
+            codes.
+        </p>
+        <p>
+            In case of successful authorization, user will be redirected to the page with the list of users. Navbar will
+            also
+            have new buttons, and the log-out button on the right upper corner. </p>
+
+        <p>
+
+            From list of other users, user can access the page of any of them. Trying to go by invalid url will cause
+            404 warning.
+            Each page has public information, which includes number of people registered by referral code, and private
+            information,
+            which is visible only to the owner of the page. <strong>Private information includes the referral
+            code</strong> and update
+            button. Update button
+            triggers special form which could be canceled or accepted. The update form's page is also capable of showing
+            404 and 403(unauthorized)
+            errors in case of using invalid id in link or trying to visit someone else's update page.
+        </p>
+        <p>
+            To log into another account you firstly need to log-out which is done instantly after pressing the link in
+            the top right corner.
+        </p>
+
+        <h4 class="text-centre"> Bug Report</h4>
+        <p><strong>Warning about Django ORM superuser and admin panel</strong>. Users created with manage.py commands
+            such as "createsuperuser" can have some
+            unpredictable behaviour, so don't use them. I've used standard Django auth features and extended User Model
+            by setting new Model of ViralUser
+            (or user profile). The extension is done by setting One-to-One link in ORM, so that each time the User
+            instance
+            is created, app creates an
+            instance of users profile. This works fine because of Django senders mechanism, but if the user is created
+            without using server, senders can not control
+            creating user's profile, which is used for storing information and in url system.</p>
+    {% endblock %}
+
 </main>
 
 <footer class="btn-dark"> I am footer</footer>

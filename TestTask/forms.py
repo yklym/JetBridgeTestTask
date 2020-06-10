@@ -35,3 +35,9 @@ class RegisterForm(UserCreationForm):
             user.save()
 
         return user
+
+
+class UpdateForm(forms.ModelForm):
+    class Meta:
+        model = ViralUser
+        fields = ["description", ]

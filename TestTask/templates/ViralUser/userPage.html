@@ -11,7 +11,7 @@
     {% if error404 %}
         <p class="not-found-err">Sorry, but this user couldn't be found</p>
     {% else %}
-        <h1 class="text-centre"> {{ user.username }}</h1>
+        <h1 class="text-centre"> {{ profile.user.username }}</h1>
         <div class="user-page-description-wrapper">
 
             <div class="user-page-description-info">
@@ -24,8 +24,45 @@
             <div class="user-page-description-image">
                 <img src="{{ profile.images.first.url }}" alt="avatar">
             </div>
-
         </div>
+
+
+        <div class="mb-10">
+            <h4 class="text-centre"> User public info:</h4>
+            <table class="table  table-hover">
+                <tbody>
+                <tr>
+                    <td><strong>Username:</strong></td>
+                    <td>{{ profile.user.username }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Users invited:</strong></td>
+                    <td>{{ profile.invited_users_amount }}</td>
+                </tr>
+                </tbody>
+            </table>
+            {% if is_owner %}
+                <h4 class="text-centre">User private info:</h4>
+                <table class="table  table-hover">
+                    <tbody>
+                    <tr>
+                        <td><strong>Referral code:</strong></td>
+                        <td>{{ profile.invite_code }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Some another field:</strong></td>
+                        <td>some info</td>
+                    </tr>
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+        <h4 class="text-centre">Actions:</h4>
+
+        {% if is_owner %}
+            <a href="{% url "userPageUpdate" profile.id %}" class="btn btn-primary">Edit page</a>
+        {% endif %}
+
     {% endif %}
 
 {% endblock %}
