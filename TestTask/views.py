@@ -38,4 +38,5 @@ def user_page(request, pk):
         profile = ViralUser.objects.get(id=pk)
     except ObjectDoesNotExist:
         error_not_found = True
+        print("-----\nsuer not found")
     return render(request, 'ViralUser/userPage.html', {"error404": error_not_found, "profile": profile})

@@ -10,4 +10,4 @@ curr_domain = "https://localhost:8080/"
 
 
 def hash_url_string(s):
-    return str(hash("s"))[:7]
+    return str(abs(hash(s)))[:7]
